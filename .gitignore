@@ -51,4 +51,3 @@ venv/
 *.sublime-workspace
 
 # Git
-.gitignore
