@@ -1,5 +1,10 @@
-node_modules
-npm-debug.log
-Dockerfile
-.dockerignore
-.env
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+env/
+venv/
+build/
+dist/
+node_modules/
+*.db
