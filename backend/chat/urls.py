@@ -27,4 +27,6 @@ urlpatterns = [
     path('token/verify/', TokenVerifyView.as_view(), name='token_verify'),
 
 ]
+from django.views.generic import TemplateView
+urlpatterns += [path('', TemplateView.as_view(template_name="index.html"))]
 
