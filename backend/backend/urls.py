@@ -16,8 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.urls import re_path
+from .views import FrontendAppView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('chat.urls')),
+]
+from .views import FrontendAppView
+
+urlpatterns += [
+    re_path(r'^.*$', FrontendAppView.as_view(), name='frontend'),
 ]
