@@ -198,3 +198,10 @@ SIMPLe_JWT = {
     'BLACKLIST_AFTER_ROTATION': True,  # Blacklist old tokens after rotation
     'UPDATE_LAST_LOGIN': True,  # Whether to update the user's last_login field
 }
+TEMPLATES = [
+    {
+        ...
+        'DIRS': [BASE_DIR / "templates"],
+        ...
+    }
+]

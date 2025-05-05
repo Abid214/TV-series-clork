@@ -28,3 +28,7 @@ from .views import FrontendAppView
 urlpatterns += [
     re_path(r'^.*$', FrontendAppView.as_view(), name='frontend'),
 ]
+from django.views.generic import TemplateView
+urlpatterns = [
+    path("", TemplateView.as_view(template_name="index.html")),
+]
