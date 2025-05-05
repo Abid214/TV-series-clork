@@ -94,10 +94,13 @@ CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'backend.urls'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 TEMPLATES = [
     {
+        
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'chat', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -198,10 +201,7 @@ SIMPLe_JWT = {
     'BLACKLIST_AFTER_ROTATION': True,  # Blacklist old tokens after rotation
     'UPDATE_LAST_LOGIN': True,  # Whether to update the user's last_login field
 }
-TEMPLATES = [
-    {
-        ...
-        'DIRS': [BASE_DIR / "templates"],
-        ...
-    }
-]
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
