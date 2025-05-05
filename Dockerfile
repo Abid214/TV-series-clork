@@ -39,7 +39,11 @@
 # CMD ["gunicorn", "backend.wsgi:application", "--bind", "0.0.0.0:8000"]
 
 # Stage 1: Frontend build
-FROM node:18 AS frontend
+
+FROM node:18.20.2-slim AS frontend
+
+# Update the base image to address vulnerabilities
+RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app/frontend
 COPY frontend/package*.json ./
@@ -48,7 +52,7 @@ COPY frontend/ .
 RUN npm run build
 
 # Stage 2: Django backend
-FROM python:3.11-slim
+FROM python:3.11.9-slim
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
